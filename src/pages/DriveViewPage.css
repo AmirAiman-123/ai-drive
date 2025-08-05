@@ -1,0 +1,228 @@
+/* File: AuraDrive/frontend/src/pages/DriveViewPage.css */
+
+/* Add these styles to the end of DriveViewPage.css */
+
+.file-card-wrapper {
+  position: relative;
+  /* This wrapper helps position the 3-dot button */
+}
+
+.more-options-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: var(--text-light);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s, color 0.2s;
+  opacity: 0; /* Hidden by default */
+}
+
+.file-card-wrapper:hover .more-options-btn {
+  opacity: 1; /* Show on hover */
+}
+
+.more-options-btn:hover {
+  background-color: var(--background-light);
+  color: var(--text-slate);
+}
+
+.more-options-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+
+.drive-view-container {
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.drive-view-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.drive-view-header h1 {
+  margin: 0 0 0 1rem;
+  color: var(--text-slate);
+}
+
+.back-link {
+  text-decoration: none;
+  color: var(--primary-blue);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-gray);
+  transition: background-color 0.2s;
+}
+
+.back-link:hover {
+  background-color: #f0f4f8;
+}
+
+.dropzone {
+  border: 2px dashed var(--border-gray);
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  color: var(--text-light);
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+  margin-bottom: 2rem;
+}
+
+.dropzone.active {
+  border-color: var(--primary-blue);
+  background-color: #e3f2fd;
+}
+
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.file-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: var(--surface-white);
+  border: 1px solid var(--border-gray);
+  border-radius: 12px;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.file-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.file-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  word-break: break-all;
+}
+
+.file-name {
+  font-weight: 500;
+  color: var(--text-slate);
+  font-size: 0.95rem;
+}
+
+.file-size {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-top: 0.25rem;
+}
+
+/* Add this to the end of DriveViewPage.css */
+
+.create-folder-btn {
+  margin-left: auto; /* Pushes the button to the far right */
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--primary-blue);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.create-folder-btn:hover {
+  background-color: #3a82d2;
+}
+
+/* Add these styles to DriveViewPage.css */
+
+.file-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.file-icon.folder-icon {
+  color: #f6e05e; /* A gold/yellow color for folders */
+}
+
+/* Breadcrumb styles */
+.breadcrumb-bar {
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: var(--text-light);
+}
+.breadcrumb-bar a {
+  color: var(--primary-blue);
+  text-decoration: none;
+  font-weight: 500;
+}
+.breadcrumb-bar a:hover {
+  text-decoration: underline;
+}
+.breadcrumb-bar span {
+  margin: 0 0.5rem;
+}
+
+/* Add this to DriveViewPage.css or App.css */
+.download-button {
+  display: inline-block;
+  margin-top: 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--primary-blue);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+.download-button:hover {
+  background-color: #3a82d2;
+}
+
+/* Add these styles to DriveViewPage.css */
+.file-card-wrapper.selected .file-card {
+  background-color: #e3f2fd; /* Light blue background for selected items */
+  border-color: var(--primary-blue);
+  transform: scale(0.98); /* Slight press-down effect */
+}
+
+/* Add this to the end of DriveViewPage.css */
+/* New, themed Paste Button styles */
+.paste-btn {
+  margin-left: auto; /* Pushes it to the right */
+  margin-right: 1rem; /* Space between it and the "Create Folder" button */
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  background-color: #38A169; /* A professional green for confirmation actions */
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.paste-btn:hover {
+  background-color: #2F855A; /* A darker green for hover */
+}

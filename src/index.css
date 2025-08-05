@@ -1,0 +1,45 @@
+/* File: AuraDrive/frontend/src/index.css */
+
+/* Import the 'Inter' font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* --- NEW: Updated Color Palette to pair with a light blue background --- */
+:root {
+  --primary-blue: #007BFF; /* A brighter, more modern blue */
+  --primary-blue-dark: #0056b3;
+  --background-light: #F0F8FF; /* AliceBlue - a very light blue, will blend well */
+  --surface-white: rgba(255, 255, 255, 0.85); /* Semi-transparent white for a frosted glass effect */
+  --text-slate: #1a202c; /* A darker slate for better contrast */
+  --text-light: #4a5568;
+  --border-gray: rgba(0, 0, 0, 0.1); /* Softer border */
+  --shadow-color: rgba(0, 123, 255, 0.1);
+}
+
+/* Global reset and base styles */
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* --- NEW: Background Image Styling --- */
+  background-image: url('../src/test.png'); /* Assumes test.png is in /src */
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed; /* Keeps the background static during scroll */
+  background-color: var(--background-light); /* Fallback color */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* --- NEW: Frosted Glass Effect for Cards --- */
+.auth-form-wrapper, .drive-card, .file-card, .drive-view-header, .breadcrumb-bar, .user-menu > div > div > div, .context-menu-ul, .preview-modal-panel {
+  background-color: var(--surface-white) !important;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px); /* For Safari */
+  border: 1px solid var(--border-gray);
+}
