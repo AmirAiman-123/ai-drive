@@ -19,13 +19,13 @@
 
 import axios from 'axios';
 
-// During local development, this will be falsy, and it will use the proxy.
-// When deployed on Vercel, it will use the value of the environment variable.
+// When deployed on Vercel, this uses the value of REACT_APP_API_BASE_URL.
+// In local development, it's undefined, so Axios uses the "proxy" from package.json.
 const baseURL = process.env.REACT_APP_API_BASE_URL;
 
 const api = axios.create({
   baseURL: baseURL,
-  withCredentials: true,
+  withCredentials: true, // This line is absolutely critical.
 });
 
 export default api;
