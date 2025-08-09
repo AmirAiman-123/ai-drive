@@ -1,0 +1,206 @@
+/* File: AuraDrive/frontend/src/pages/DriveViewPage.css (Definitive Dark Theme) */
+
+.drive-view-container {
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.drive-view-header {
+  /* Inherits from .surface-card */
+  display: flex;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding: 1rem 1.5rem;
+}
+
+.drive-view-header h1 {
+  margin: 0 0 0 1.5rem;
+  color: var(--text-primary);
+}
+
+.back-link {
+  text-decoration: none;
+  color: var(--primary-glow);
+  font-weight: 500;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  background-color: var(--surface-dark);
+  border: 1px solid var(--border-color);
+  transition: background-color 0.2s;
+}
+
+.back-link:hover {
+  background-color: var(--surface-hover);
+}
+
+.create-folder-btn {
+  background: linear-gradient(to right, var(--primary-accent), var(--primary-blue));
+  margin-left: auto;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  background-color: var(--primary-blue);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.2);
+}
+
+.create-folder-btn:hover {
+  background-color: var(--primary-blue-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(14, 165, 233, 0.3);
+}
+
+.paste-btn {
+  margin-left: auto;
+  margin-right: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: white;
+  background-color: #38A169;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.paste-btn:hover {
+  background-color: #2F855A;
+}
+
+.breadcrumb-bar {
+  /* Inherits from .surface-card */
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  padding: 0.75rem 1.5rem;
+}
+.breadcrumb-bar a {
+  color: var(--primary-glow);
+  text-decoration: none;
+  font-weight: 500;
+}
+.breadcrumb-bar a:hover {
+  text-decoration: underline;
+}
+.breadcrumb-bar span {
+  margin: 0 0.5rem;
+}
+
+.dropzone {
+  border: 2px dashed var(--border-color); /* This will be visible now */
+  border-radius: 12px;
+  padding: 3rem;
+  text-align: center;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: border-color 0.3s, background-color 0.3s;
+  margin-bottom: 2rem;
+}
+
+.dropzone.active {
+  border-color: var(--primary-glow);
+  background-color: rgba(0, 175, 255, 0.1);
+}
+
+.file-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1.5rem;
+}
+
+.file-card-wrapper {
+  position: relative;
+}
+
+.file-card {
+  /* Inherits from .surface-card */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
+}
+
+.file-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  background-color: var(--surface-hover);
+}
+
+.file-card-wrapper.selected .file-card {
+  background-color: rgba(14, 165, 233, 0.2);
+  border-color: var(--primary-accent);
+  transform: scale(0.98);
+  box-shadow: 0 0 15px var(--shadow-color);
+}
+
+.file-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.file-icon.folder-icon {
+  color: #D4AF37;
+}
+
+.file-info {
+  display: flex;
+  flex-direction: column;
+  word-break: break-all;
+}
+
+.file-name {
+  font-weight: 500;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.file-size {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-top: 0.25rem;
+}
+
+.file-card-link {
+  text-decoration: none;
+  color: inherit;
+}
+
+.more-options-btn {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  background-color: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.2s, color 0.2s, opacity 0.2s;
+  opacity: 0;
+}
+
+.file-card-wrapper:hover .more-options-btn {
+  opacity: 1;
+}
+
+.more-options-btn:hover {
+  background-color: var(--surface-hover);
+  color: var(--text-primary);
+}
+
+.more-options-btn svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}

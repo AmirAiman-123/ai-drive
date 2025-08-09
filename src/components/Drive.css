@@ -1,0 +1,79 @@
+/* File: AuraDrive/frontend/src/components/Drive.css (Definitive Dark Theme) */
+
+.drive-card {
+  /* Inherits from .surface-card in index.css */
+  display: flex;
+  align-items: center;
+  padding: 1.5rem;
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  position: relative; /* Needed for the pseudo-element */
+  z-index: 1;
+  overflow: hidden;
+}
+
+.drive-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--primary-glow);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+
+.drive-icon {
+  flex-shrink: 0;
+  margin-right: 1.5rem;
+  background-color: rgba(14, 165, 233, 0.1);
+  color: var(--primary-glow);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.drive-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.drive-info {
+  text-align: left;
+}
+
+.drive-title {
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin: 0 0 0.25rem 0;
+  color: var(--text-primary);
+}
+
+.drive-description {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.drive-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 12px;
+  border: 2px solid transparent;
+  background: linear-gradient(to right, var(--primary-glow), var(--primary-accent)) border-box;
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: destination-out;
+  mask-composite: exclude;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.drive-card:hover::before {
+  opacity: 1;
+}

@@ -1,0 +1,50 @@
+/* File: AuraDrive/frontend/src/index.css (Vibrancy & Depth Theme) */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+  /* --- NEW: Vibrant & Deep Color Palette --- */
+  --primary-glow: #38BDF8;      /* A brighter, sky blue for glows */
+  --primary-accent: #0EA5E9;    /* The main interactive blue */
+  --primary-dark: #0284C7;      /* A deeper blue for hovers */
+  
+  --background-dark: #020617;   /* A deep, rich navy blue, almost black */
+  --surface-dark: #0F172A;      /* A dark slate blue for card surfaces */
+  --surface-hover: #1E293B;    /* A lighter slate blue for hovers */
+  
+  --text-primary: #E2E8F0;      /* A soft off-white */
+  --text-secondary: #94A3B8;    /* A muted slate-grey */
+  
+  --border-color: rgba(148, 163, 184, 0.2);
+  --shadow-color: rgba(56, 189, 248, 0.1);
+
+  --danger-text: #F47174;
+  --danger-bg: rgba(244, 113, 116, 0.1);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* --- UPDATED: Background with a subtle radial gradient --- */
+  background-color: var(--background-dark);
+  background-image: 
+    radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 80% 90%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
+    url('../src/test.png');
+  background-size: cover, cover, cover;
+  background-position: center center;
+  background-attachment: fixed;
+
+  color: var(--text-primary);
+}
+
+* { box-sizing: border-box; }
+
+.surface-card {
+  background-color: var(--surface-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+}

@@ -1,0 +1,132 @@
+/* File: AuraDrive/frontend/src/pages/AuthForm.css (Definitive Dark Theme) */
+
+.auth-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.auth-form-wrapper {
+  /* Inherits from .surface-card in index.css */
+  padding: 2.5rem 3rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3), 0 0 40px var(--shadow-color);
+  width: 100%;
+  max-width: 450px;
+}
+
+.auth-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-header h2 {
+  font-size: 1.75rem;
+  margin: 0 0 0.5rem 0;
+  color: var(--text-primary);
+}
+
+.auth-header p {
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group label {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+.input-group input {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  font-size: 1rem;
+  font-family: 'Inter', sans-serif;
+  background-color: var(--background-dark);
+  color: var(--text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--primary-glow);
+  box-shadow: 0 0 0 3px var(--shadow-color);
+}
+
+.auth-button {
+  background: linear-gradient(to right, var(--primary-accent), var(--primary-blue));
+  color: white;
+  padding: 0.85rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1rem;
+  box-shadow: 0 4px 15px rgba(14, 165, 233, 0.3);
+}
+
+.auth-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(14, 165, 233, 0.4);
+}
+
+.auth-button:active {
+  transform: scale(0.98);
+}
+
+.auth-footer {
+  text-align: center;
+  margin-top: 1.5rem;
+  font-size: 0.9rem;
+}
+
+.auth-footer a {
+  color: var(--primary-glow);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.auth-footer a:hover {
+  text-decoration: underline;
+}
+
+.role-selector {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+}
+
+.role-button {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-color);
+  background-color: var(--surface-dark);
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+}
+
+.role-button.selected {
+  background-color: rgba(14, 165, 233, 0.1);
+  border-color: var(--primary-accent);
+  color: var(--primary-glow);
+  box-shadow: 0 0 10px var(--shadow-color); /* Add a glow to selected state */
+}
