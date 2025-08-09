@@ -12,7 +12,7 @@ const AiIcon = (props) => (
   </svg>
 );
 
-const DriveAi = ({ onActionExecuted, breadcrumbs }) => {
+const DriveAi = ({ onActionExecuted }) => {
   const { scope } = useParams();
   const location = useLocation();
   const [isOpen, setIsOpen] = useState(false);
@@ -32,33 +32,34 @@ const DriveAi = ({ onActionExecuted, breadcrumbs }) => {
 
   const handleSend = async () => {
     if (input.trim() === '' || isTyping) return;
+
     const userMessage = { author: 'user', text: input };
     setMessages(prev => [...prev, userMessage]);
     setInput('');
     setIsTyping(true);
+
     try {
       const searchParams = new URLSearchParams(location.search);
       const parentId = searchParams.get('parent_id');
-
-
-      const currentPath = `/${scope}/` + (breadcrumbs?.map(b => b.filename).join('/') || '');
-
+      const breadcrumbs = location.state?.breadcrumbs || [];
+      const currentPath = `/${scope}/` + (breadcrumbs.map(b => b.filename).join('/') || '');
 
       const response = await api.post('/api/ai/chat', {
         prompt: input,
         context: { 
           scope: scope, 
           parent_id: parentId,
-          path: currentPath // 3. Send the path to the backend
-        }      });
-
-
+          path: currentPath
+        }
+      });
+      
       const aiMessage = response.data;
       setMessages(prev => [...prev, aiMessage]);
 
       if (aiMessage.refresh_needed && onActionExecuted) {
         onActionExecuted();
       }
+
     } catch (error) {
       const errorMessage = { author: 'ai', text: "Sorry, I'm having trouble connecting right now." };
       setMessages(prev => [...prev, errorMessage]);
@@ -72,6 +73,7 @@ const DriveAi = ({ onActionExecuted, breadcrumbs }) => {
       <motion.button className="ai-fab" onClick={() => setIsOpen(!isOpen)} whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
         <AiIcon />
       </motion.button>
+      
       <AnimatePresence>
         {isOpen && (
           <>
