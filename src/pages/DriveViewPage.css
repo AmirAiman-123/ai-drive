@@ -204,3 +204,62 @@
   width: 1.25rem;
   height: 1.25rem;
 }
+
+/* --- Mobile Responsive: Drive View Page --- */
+@media (max-width: 768px) {
+  .drive-view-container {
+    padding: 1rem; /* Reduce padding on small screens */
+  }
+
+  .drive-view-header {
+    flex-direction: column; /* Stack header items vertically */
+    align-items: flex-start; /* Align to the left */
+    gap: 1rem;
+    padding: 1rem;
+  }
+  
+  .drive-view-header h1 {
+    margin-left: 0; /* Remove left margin on h1 */
+  }
+
+  /* Make create/paste buttons take full width */
+  .create-folder-btn,
+  .paste-btn {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0.8rem;
+  }
+  
+  .breadcrumb-bar {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+    /* Allow breadcrumbs to wrap if they get too long */
+    white-space: normal;
+    word-break: break-all;
+  }
+  
+  .dropzone {
+    padding: 2rem;
+  }
+
+  .file-grid {
+    /* Change to a 2-column grid on mobile for a better layout */
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+  
+  .file-card {
+    padding: 1rem 0.5rem;
+  }
+
+  .file-name {
+    font-size: 0.85rem;
+  }
+
+  /* Make the 3-dot menu button always visible on mobile */
+  .more-options-btn {
+    opacity: 1;
+    background-color: rgba(0,0,0,0.1);
+  }
+}

@@ -80,7 +80,7 @@ const DashboardPage = () => {
             <Menu as="div" style={{ position: 'relative', display: 'inline-block' }}>
               <div>
                 <Menu.Button className="user-menu-button">
-                  <span>{user?.email}</span>
+  <span className="user-email-display">{user?.email}</span> {/* <-- ADD className HERE */}
                   <MenuIcon style={{ width: '1.25rem', height: '1.25rem' }} />
                 </Menu.Button>
               </div>

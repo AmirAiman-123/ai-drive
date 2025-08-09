@@ -92,3 +92,13 @@
   background-color: var(--danger-bg); /* Reddish background on hover */
   color: white;
 }
+
+
+
+/* --- Mobile Responsive: App-wide --- */
+@media (max-width: 768px) {
+  /* Hide the user's email on the dashboard header on small screens */
+  .user-email-display {
+    display: none;
+  }
+}
