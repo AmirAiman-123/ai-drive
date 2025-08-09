@@ -22,29 +22,30 @@
   --danger-bg: rgba(244, 113, 116, 0.1);
 }
 
+/* In index.css */
 body {
   margin: 0;
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   
-  /* --- UPDATED: Background with a subtle radial gradient --- */
   background-color: var(--background-dark);
   background-image: 
-    radial-gradient(circle at 10% 10%, rgba(14, 165, 233, 0.15) 0%, transparent 40%),
+    radial-gradient(circle at 10% 20%, rgba(14, 165, 233, 0.15) 0%, transparent 40%),
     radial-gradient(circle at 80% 90%, rgba(14, 165, 233, 0.1) 0%, transparent 50%),
     url('../src/test.png');
-  background-size: cover, cover, cover;
+  background-size: cover;
   background-position: center center;
   background-attachment: fixed;
-
   color: var(--text-primary);
+
+  /* --- NEW: Subtle floating animation --- */
+  animation: floatBackground 120s ease-in-out infinite;
 }
 
-* { box-sizing: border-box; }
-
-.surface-card {
-  background-color: var(--surface-dark);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
+/* --- NEW: Keyframes for the animation --- */
+@keyframes floatBackground {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
