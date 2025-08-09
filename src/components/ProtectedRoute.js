@@ -1,29 +1,31 @@
-// File: AuraDrive/frontend/src/components/ProtectedRoute.js
+// File: AuraDrive/frontend/src/components/ProtectedRoute.js (Definitive Final Version)
 
 import React from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const ProtectedRoute = ({ children }) => {
-  const { user, loading } = useAuth();
+  // We now use 'sessionChecked' instead of 'loading'.
+  const { user, sessionChecked } = useAuth();
   const location = useLocation();
 
-  // --- THIS IS THE NEW LOGIC ---
-  if (loading) {
-    // While the context is checking for a session, show a loading indicator
-    // or a blank screen to prevent a flicker/redirect.
+  // If the initial session check has NOT finished, we show a loading screen.
+  // This prevents any child components (like DriveViewPage) from trying to fetch data
+  // before we are 100% sure about the user's login status.
+  if (!sessionChecked) {
     return (
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100vh' }}>
-        <h2>Loading Session...</h2>
+        <h2>Authenticating Session...</h2>
       </div>
     );
   }
 
+  // If the session check IS finished, and there is still no user, then redirect.
   if (!user) {
-    // If loading is finished AND there's still no user, then redirect.
     return <Navigate to="/login" state={{ from: location }} replace />;
   }
 
+  // If the session check is finished and we have a user, render the page.
   return children;
 };
 
