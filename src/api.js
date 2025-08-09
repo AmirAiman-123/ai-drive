@@ -17,15 +17,18 @@
 
 // File: AuraDrive/frontend/src/api.js (Production Ready)
 
+// File: AuraDrive/frontend/src/api.js (Definitive Final Version)
+
 import axios from 'axios';
 
-// When deployed on Vercel, this uses the value of REACT_APP_API_BASE_URL.
-// In local development, it's undefined, so Axios uses the "proxy" from package.json.
+// This reads the backend URL from the Vercel environment variable.
+// For local development (when you run `npm start`), this variable won't exist,
+// and Axios will correctly use the "proxy" we set up in package.json.
 const baseURL = process.env.REACT_APP_API_BASE_URL;
 
 const api = axios.create({
   baseURL: baseURL,
-  withCredentials: true, // This line is absolutely critical.
+  withCredentials: true, // This is CRITICAL for sending cookies
 });
 
 export default api;
