@@ -18,13 +18,16 @@
 // File: AuraDrive/frontend/src/api.js (Production Ready)
 
 // File: AuraDrive/frontend/src/api.js (Definitive Final Version)
+// File: AuraDrive/frontend/src/api.js (Definitive Final Version)
+
+// File: AuraDrive/frontend/src/api.js
 
 import axios from 'axios';
 
-// This reads the backend URL from the Vercel environment variable.
-// For local development (when you run `npm start`), this variable won't exist,
-// and Axios will correctly use the "proxy" we set up in package.json.
-const baseURL = process.env.REACT_APP_API_BASE_URL;
+// This logic tells the app:
+// 1. If we are deployed on Vercel (or any production environment), use the URL from the environment variables.
+// 2. If we are running locally (`npm start`), use the relative path '/' which will be handled by our package.json proxy.
+const baseURL = process.env.REACT_APP_API_BASE_URL || '/';
 
 const api = axios.create({
   baseURL: baseURL,
