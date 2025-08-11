@@ -34,23 +34,19 @@ const api = axios.create({
   withCredentials: true, // This is CRITICAL for sending cookies
 });
 
-// --- THIS IS THE NGROK BYPASS INTERCEPTOR ---
-// This is a "request" interceptor. It runs for every single request
-// BEFORE it is sent.
+// --- BULLETPROOF NGROK BYPASS INTERCEPTOR ---
+// This interceptor runs for every single request before it is sent.
 api.interceptors.request.use(
   (config) => {
-    // If the URL is an ngrok URL, automatically add the bypass header.
-    if (config.baseURL && config.baseURL.includes('ngrok-free.app')) {
-      config.headers['ngrok-skip-browser-warning'] = 'true';
-    }
+    // Always add the bypass header, regardless of the baseURL.
+    // The local Flask server will simply ignore this header, so it does no harm.
+    // This GUARANTEES the header will be present for all ngrok requests from Vercel.
+    config.headers['ngrok-skip-browser-warning'] = 'true';
     return config;
   },
   (error) => {
-    // If there's an error setting up the request, just pass it along.
     return Promise.reject(error);
   }
 );
 
 export default api;
-
-
