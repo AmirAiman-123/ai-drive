@@ -11,7 +11,7 @@ const WelcomePage = () => {
   const redirectUrl = window.location.origin + '/login';
 
   // Construct the final ngrok URL with the redirect parameter.
-  const ngrokGateUrl = `${backendUrl}/auth/session?redirect=${encodeURIComponent(redirectUrl)}`;
+const ngrokGateUrl = `${backendUrl}/auth/gate?redirect=${encodeURIComponent(redirectUrl)}`;
 
   return (
     <div className="auth-container">
