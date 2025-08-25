@@ -41,7 +41,9 @@ import axios from 'axios';
 // The proxy in package.json forwards them to localhost:5000.
 // When tunneled, this sends requests to your tunnel URL, and the proxy still works.
 const api = axios.create({
-  baseURL: '/', // Use a relative path, NOT an environment variable.
+//  baseURL: '/', // Use a relative path, NOT an environment variable.
+  baseURL: process.env.REACT_APP_API_URL, // Use a relative path, NOT an environment variable.
+
   withCredentials: true,
 });
 
